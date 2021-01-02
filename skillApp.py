@@ -7,8 +7,6 @@ input_message = """
 "l" => "Login"
 "s" => "Sign Up" 
 """
-
-
 print(input_message)
 FirstInput = input("please chosse one: ").strip().lower()
 def Login():
@@ -33,12 +31,6 @@ def Login():
         print("sorry your password is incoract")
         exit()
 
-    
-    # to do 
-
-
-
-
 def SignUp():
     global username
     username = input("enter your username: ")
@@ -59,7 +51,6 @@ def SignUp():
         cr.execute("INSERT INTO users (name, password) VALUES(?,?)", [(username), (password)])
         db.commit()
 
-  
 input_list = ["l", "s"]
 
 if FirstInput in input_list:
@@ -112,8 +103,6 @@ def updateSkill():
 def quit():
      exit()
 
-
-    
 input_message2 = f"""
 What Do you Want ? 
 "s" => Show All Skills
