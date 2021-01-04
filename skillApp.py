@@ -62,8 +62,8 @@ def messandinput():
             SignUp()
     else:
         print("enter one of those character \"l\" \"s\" " )
-    quit()
-messandinput()
+        quit()
+
 
 input_list2 = ["s", "a", "d", "u", "q"]
 cr.execute("SELECT user_id FROM users WHERE name=:name", [(username)])
@@ -115,6 +115,7 @@ What Do you Want ?
 
 Chosse a Option please:
 """
+messandinput()
 print(input_message2)
 SecoundInput = input("please chosse one: ").strip().lower()
 if SecoundInput in input_list2:
