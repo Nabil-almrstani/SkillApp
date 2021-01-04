@@ -3,12 +3,7 @@ import os
 
 db = sqlite3.connect("skillapp.db")
 cr = db.cursor()
-input_message = """
-"l" => "Login"
-"s" => "Sign Up" 
-"""
-print(input_message)
-FirstInput = input("please chosse one: ").strip().lower()
+
 def Login():
     global username
     username = input("enter your username: ")
@@ -51,17 +46,24 @@ def SignUp():
         cr.execute("INSERT INTO users (name, password) VALUES(?,?)", [(username), (password)])
         db.commit()
 
-input_list = ["l", "s"]
+def messandinput():
+    input_message = """
+"l" => "Login"
+"s" => "Sign Up" 
+"""
+    print(input_message)
+    FirstInput = input("please chosse one: ").strip().lower()
+    input_list = ["l", "s"]
 
-if FirstInput in input_list:
-    if FirstInput == "l":
-        Login()
+    if FirstInput in input_list:
+        if FirstInput == "l":
+            Login()
     elif FirstInput == "s":
-        SignUp()
-else:
-    print("enter one of those character \"l\" \"s\" " )
+            SignUp()
+    else:
+        print("enter one of those character \"l\" \"s\" " )
     quit()
-
+messandinput()
 
 input_list2 = ["s", "a", "d", "u", "q"]
 cr.execute("SELECT user_id FROM users WHERE name=:name", [(username)])
